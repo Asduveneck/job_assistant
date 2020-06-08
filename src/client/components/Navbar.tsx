@@ -8,6 +8,7 @@ const TopNavbar: React.SFC = () => {
         <Typography variant='h6' color='primary'>
           Job Tracker
         </Typography>
+        Add a Job ; Daily Reminder ; Connections; Companies
       </Toolbar>
     </AppBar>
   );
