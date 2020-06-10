@@ -5,12 +5,14 @@
         "noImplicitThis": true,
         "strictNullChecks": true,
         "skipLibCheck": true,
-        "module": "es6",
+        "module": "esnext",
         "target": "es5",
         "jsx": "react",
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "allowJs": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
         "lib": [
             "dom", "dom.iterable", "esnext"
         ]
