@@ -1,7 +1,14 @@
 import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-
+import { persistReducer, persistStore } from 'redux-persist';
 import rootReducer from './reducer';
+import storage from 'redux-persist/lib/storage';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['session'],
+};
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -13,9 +20,11 @@ const composeEnhancers =
     })) ||
   compose;
 
-const store = createStore(
-  rootReducer,
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+export const store = createStore(
+  persistedReducer,
   composeEnhancers(applyMiddleware(sagaMiddleware)),
 );
 
-export default store;
+export const persistor = persistStore(store);
+// sagaMiddleware.run(entitySaga);
