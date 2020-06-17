@@ -1,4 +1,5 @@
 import * as express from 'express';
+import 'dotenv/config';
 import apiRouter from './routes';
 
 const app = express();
