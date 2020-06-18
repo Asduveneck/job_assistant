@@ -4,7 +4,7 @@ import Job from './Job';
 import Person from './Person';
 
 export abstract class TaskProgressHelper {
-  @Column()
+  @Column({ nullable: true })
   description: string;
 
   @Column('timestamp', {
@@ -12,6 +12,15 @@ export abstract class TaskProgressHelper {
     default: () => 'LOCALTIMESTAMP',
   })
   dateCreated: string;
+}
+
+export abstract class Details {
+  @Column({ type: 'json', nullable: true })
+  details: any; // plan this out?
+}
+export abstract class DetailsContactHistory extends Details {
+  @Column({ type: 'json', nullable: true })
+  contactHistory: any; // TODO: object where keys are dates and notes are values, or an array of dates and an array of notes. OR store as an array of {date: 'timestamp' note:'text'}
 }
 
 export abstract class RankHelper {
