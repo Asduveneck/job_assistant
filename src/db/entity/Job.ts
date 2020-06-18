@@ -15,6 +15,7 @@ export class Job {
   @ManyToOne(
     type => Company,
     company => company.jobs,
+    { cascade: ['insert'] },
   )
   company: Company;
 
@@ -43,7 +44,7 @@ export class Job {
   details: any; // plan this out?
 
   @Column({ type: 'json' })
-  contactHistory: any;
+  contactHistory: any; // TODO: object where keys are dates and notes are values, or an array of dates and an array of notes. OR store as an array of {date: 'timestamp' note:'text'}
 
   @Column({ type: 'json' })
   interviewHistory: any;

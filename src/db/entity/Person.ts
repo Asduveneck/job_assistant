@@ -15,6 +15,7 @@ export class Person {
   @ManyToOne(
     type => Company,
     company => company.persons,
+    { cascade: ['insert'] },
   )
   company: Company;
 
@@ -37,7 +38,7 @@ export class Person {
   title: string;
 
   @Column({ type: 'json' })
-  details: any; // plan this out?
+  details: any; // TODO: plan this out more completely.
 
   @Column({ type: 'json' })
   contactHistory: any;
