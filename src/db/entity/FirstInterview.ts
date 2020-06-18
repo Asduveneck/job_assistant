@@ -8,7 +8,7 @@ import {
 import Job from './Job';
 
 @Entity()
-export class FirstInterview {
+class FirstInterview {
   @PrimaryGeneratedColumn()
   interviewId: number;
 

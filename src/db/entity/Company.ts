@@ -3,7 +3,7 @@ import Job from './Job';
 import Person from './Person';
 
 @Entity()
-export class Company {
+class Company {
   @PrimaryGeneratedColumn()
   companyId: number;
 

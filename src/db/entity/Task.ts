@@ -1,14 +1,8 @@
-import {
-  Column,
-  Entity,
-  PrimaryGeneratedColumn,
-  OneToMany,
-  ManyToOne,
-} from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { TaskProgressHelper } from './helpers';
 
 @Entity()
-export class Task extends TaskProgressHelper {
+class Task extends TaskProgressHelper {
   @PrimaryGeneratedColumn()
   taskId: number;
 

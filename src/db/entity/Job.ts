@@ -1,14 +1,8 @@
-import {
-  Column,
-  Entity,
-  PrimaryGeneratedColumn,
-  OneToMany,
-  ManyToOne,
-} from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import Company from './Company';
 
 @Entity()
-export class Job {
+class Job {
   @PrimaryGeneratedColumn()
   jobId: number;
 

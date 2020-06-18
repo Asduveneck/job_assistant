@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  PrimaryGeneratedColumn,
-  OneToOne,
-  JoinColumn,
-} from 'typeorm';
+import { PrimaryGeneratedColumn } from 'typeorm';
 
 import { FaveAvoidCompany, FaveAvoidJob, FaveAvoidPerson } from './helpers';
 
