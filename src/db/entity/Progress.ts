@@ -15,7 +15,7 @@ export class Progress extends TaskProgressHelper {
   @Column({ type: 'varchar', length: 100 })
   timeSpent: string;
 
-  @Column({ type: 'varchar', length: 15 })
+  @Column({ type: 'varchar', length: 20 })
   category: string;
 }
 
