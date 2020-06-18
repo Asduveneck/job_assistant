@@ -1,8 +1,9 @@
 import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import Company from './Company';
+import { DetailsContactHistory } from './helpers';
 
 @Entity()
-class Job {
+class Job extends DetailsContactHistory {
   @PrimaryGeneratedColumn()
   jobId: number;
 
@@ -33,12 +34,6 @@ class Job {
     default: () => 'LOCALTIMESTAMP',
   })
   dateApplied: string;
-
-  @Column({ type: 'json', nullable: true })
-  details: any; // plan this out?
-
-  @Column({ type: 'json', nullable: true })
-  contactHistory: any; // TODO: object where keys are dates and notes are values, or an array of dates and an array of notes. OR store as an array of {date: 'timestamp' note:'text'}
 
   @Column({ type: 'json', nullable: true })
   interviewHistory: any;

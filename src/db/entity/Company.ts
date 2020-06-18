@@ -1,9 +1,10 @@
 import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import Job from './Job';
 import Person from './Person';
+import { Details } from './helpers';
 
 @Entity()
-class Company {
+class Company extends Details {
   @PrimaryGeneratedColumn()
   companyId: number;
 
@@ -30,9 +31,6 @@ class Company {
 
   @Column({ nullable: true })
   emailPattern: string;
-
-  @Column({ type: 'json', nullable: true })
-  details: any; // plan this out?
 
   @Column({ type: 'json', nullable: true })
   otherUrl: any; // array of objects? []{name: url:} ?

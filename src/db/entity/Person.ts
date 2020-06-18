@@ -1,8 +1,9 @@
 import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import Company from './Company';
+import { DetailsContactHistory } from './helpers';
 
 @Entity()
-class Person {
+class Person extends DetailsContactHistory {
   @PrimaryGeneratedColumn()
   personId: number;
 
@@ -30,12 +31,6 @@ class Person {
 
   @Column({ type: 'varchar', length: 100, nullable: true })
   title: string;
-
-  @Column({ type: 'json', nullable: true })
-  details: any; // TODO: plan this out more completely.
-
-  @Column({ type: 'json', nullable: true })
-  contactHistory: any;
 }
 
 export default Person;
