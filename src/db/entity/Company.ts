@@ -22,20 +22,20 @@ class Company {
   @Column({ type: 'varchar', length: 100 })
   name: string;
 
-  @Column()
+  @Column({ nullable: true })
   careerUrl: string;
 
-  @Column()
+  @Column({ nullable: true })
   homeUrl: string;
 
-  @Column()
+  @Column({ nullable: true })
   emailPattern: string;
 
-  @Column({ type: 'json' })
+  @Column({ type: 'json', nullable: true })
   details: any; // plan this out?
 
-  @Column({ type: 'json' })
-  otherUrl: any;
+  @Column({ type: 'json', nullable: true })
+  otherUrl: any; // array of objects? []{name: url:} ?
 }
 
 export default Company;

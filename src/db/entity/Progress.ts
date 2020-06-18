@@ -6,8 +6,8 @@ class Progress extends TaskProgressHelper {
   @PrimaryGeneratedColumn()
   progressId: number;
 
-  @Column({ type: 'varchar', length: 100 })
-  timeSpent: string;
+  @Column({ type: 'int', width: 200 })
+  timeSpent: number;
 
   @Column({ type: 'varchar', length: 20 })
   category: string;
