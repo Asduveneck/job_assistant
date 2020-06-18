@@ -35,10 +35,10 @@ export class Job {
   resumeUsed: string;
 
   @Column('timestamp', {
-    name: 'applied_date',
+    name: 'date_applied',
     default: () => 'LOCALTIMESTAMP',
   })
-  appliedDate: string;
+  dateApplied: string;
 
   @Column({ type: 'json' })
   details: any; // plan this out?
