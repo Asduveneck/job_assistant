@@ -8,39 +8,45 @@ import {
 import Company from './Company';
 
 @Entity()
-export class Person {
+export class Job {
   @PrimaryGeneratedColumn()
-  person_id: number;
+  job_id: number;
 
   @ManyToOne(
     type => Company,
-    company => company.persons,
+    company => company.jobs,
   )
   company: Company;
 
   @Column({ type: 'varchar', length: 50 })
-  first_name: string;
-
-  @Column({ type: 'varchar', length: 50 })
-  last_name: string;
+  status: string;
 
   @Column({ type: 'varchar', length: 100 })
-  linkedin_url: string;
+  position: string;
 
   @Column({ type: 'varchar', length: 100 })
-  email: string;
+  url: string;
 
-  @Column({ type: 'varchar', length: 15 })
-  phone: string;
+  @Column({ type: 'varchar', length: 30 })
+  source: string;
 
-  @Column({ type: 'varchar', length: 100 })
-  title: string;
+  @Column({ type: 'varchar', length: 30 })
+  resume_used: string;
+
+  @Column('timestamp', {
+    name: 'applied_date',
+    default: () => 'LOCALTIMESTAMP',
+  })
+  appliedDate: string;
 
   @Column({ type: 'json' })
   details: any; // plan this out?
 
   @Column({ type: 'json' })
   contact_history: any;
+
+  @Column({ type: 'json' })
+  interview_history: any;
 }
 
-export default Person;
+export default Job;

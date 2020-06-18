@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import Job from './Job';
 import Person from './Person';
 
 @Entity()
@@ -11,6 +12,12 @@ export class Company {
     person => person.company,
   )
   persons: Person[];
+
+  @OneToMany(
+    type => Job,
+    job => job.company,
+  )
+  jobs: Job[];
 
   @Column({ type: 'varchar', length: 100 })
   name: string;
