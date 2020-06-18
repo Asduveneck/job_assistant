@@ -10,7 +10,7 @@ import Company from './Company';
 @Entity()
 export class Job {
   @PrimaryGeneratedColumn()
-  job_id: number;
+  jobId: number;
 
   @ManyToOne(
     type => Company,
@@ -31,7 +31,7 @@ export class Job {
   source: string;
 
   @Column({ type: 'varchar', length: 30 })
-  resume_used: string;
+  resumeUsed: string;
 
   @Column('timestamp', {
     name: 'applied_date',
@@ -43,10 +43,10 @@ export class Job {
   details: any; // plan this out?
 
   @Column({ type: 'json' })
-  contact_history: any;
+  contactHistory: any;
 
   @Column({ type: 'json' })
-  interview_history: any;
+  interviewHistory: any;
 }
 
 export default Job;

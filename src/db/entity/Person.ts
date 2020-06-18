@@ -10,7 +10,7 @@ import Company from './Company';
 @Entity()
 export class Person {
   @PrimaryGeneratedColumn()
-  person_id: number;
+  personId: number;
 
   @ManyToOne(
     type => Company,
@@ -19,13 +19,13 @@ export class Person {
   company: Company;
 
   @Column({ type: 'varchar', length: 50 })
-  first_name: string;
+  firstName: string;
 
   @Column({ type: 'varchar', length: 50 })
-  last_name: string;
+  lastName: string;
 
   @Column({ type: 'varchar', length: 100 })
-  linkedin_url: string;
+  linkedinUrl: string;
 
   @Column({ type: 'varchar', length: 100 })
   email: string;
@@ -40,7 +40,7 @@ export class Person {
   details: any; // plan this out?
 
   @Column({ type: 'json' })
-  contact_history: any;
+  contactHistory: any;
 }
 
 export default Person;

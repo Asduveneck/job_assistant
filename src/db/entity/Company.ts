@@ -5,7 +5,7 @@ import Person from './Person';
 @Entity()
 export class Company {
   @PrimaryGeneratedColumn()
-  company_id: number;
+  companyId: number;
 
   @OneToMany(
     type => Person,
@@ -23,19 +23,19 @@ export class Company {
   name: string;
 
   @Column()
-  career_url: string;
+  careerUrl: string;
 
   @Column()
-  home_url: string;
+  homeUrl: string;
 
   @Column()
-  email_pattern: string;
+  emailPattern: string;
 
   @Column({ type: 'json' })
   details: any; // plan this out?
 
   @Column({ type: 'json' })
-  other_url: any;
+  otherUrl: any;
 }
 
 export default Company;
