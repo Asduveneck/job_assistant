@@ -5,6 +5,15 @@ import 'dotenv/config';
 import apiRouter from './routes';
 import config from '../../ormconfig.json';
 
+function loggerMiddleware(
+  request: express.Request,
+  response: express.Response,
+  next,
+) {
+  console.log(`${request.method} ${request.path}`);
+  next();
+}
+
 const app = express();
 
 app.use(express.static('public'));
