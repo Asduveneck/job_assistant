@@ -7,6 +7,8 @@
     "watch:build": "npx webpack -w",
     "watch:server": "nodemon dist/server.js",
     "dev": "npm-run-all --parallel watch:*",
+    "dc-up": "docker-compose up",
+    "dev:server": "ts-node ./src/server/server.ts",
     "start": "node dist/server.js",
     "lint:fix": "eslint './src/**/*.{ts,tsx}'",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm",
@@ -17,13 +19,14 @@
     "migrate:down": "ts-node ./node_modules/typeorm/cli.js migration:revert"
   },
   "keywords": [],
-  "author": "",
+  "author": "Alex Duveneck",
   "license": "ISC",
   "dependencies": {
     "@material-ui/core": "^4.9.10",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.49",
     "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "formik": "^2.1.4",
@@ -81,6 +84,7 @@
     "prettier": "^1.19.1",
     "redux-devtools-extension": "^2.13.8",
     "tachyons": "^4.11.1",
+    "ts-node": "^8.10.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-node-externals": "^1.7.2"

@@ -3,7 +3,7 @@ import { createConnection } from 'typeorm';
 
 import 'dotenv/config';
 import apiRouter from './routes';
-import config from '../../ormconfig.json';
+// import config from '../../ormconfig.json'; // redo
 
 function loggerMiddleware(
   request: express.Request,
@@ -16,6 +16,7 @@ function loggerMiddleware(
 
 const app = express();
 
+app.use(loggerMiddleware);
 app.use(express.static('public'));
 app.use(apiRouter);
 

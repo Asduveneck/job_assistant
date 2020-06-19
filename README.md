@@ -2,23 +2,31 @@
 
 ## Technical details
 
-There are 2 different Webpack configurations. One for the server and one for the client.
+There are 2 different Webpack configurations. One for the server and one for the client. Both need to be revised.
 
-### Server
+1. The Server:
 
-The server build process compiles the TypeScript files found in `/src/server` into a single bundled JavaScript file located in the `/dist` directory.
+- The server build process compiles the TypeScript files found in `/src/server` into a single bundled JavaScript file located in the `/dist` directory.
 
-### Client
+2. The Client:
 
-The client build process compiles the React app located in `/src/client` into a bundled located at `/public/js/app.js`.
-
-The client configuration will also build the Sass files found at `/src/client/scss`. The App component imports the `app.scss` file which already includes an import for Bootstrap.
+- The client build process compiles the React app located in `/src/client` into a bundled located at `/public/js/app.js`.
 
 ### Running the project
 
 In order to run the server, use `npm run dev`, and the server will start on [port 5000](http://localhost:5000).
 
-Webpack will watch the files. Once you save a file, you can refresh your browser to ensure you got the updated client files. If you only change server files, you _shouldn't_ need to refresh.
+#### server
+
+```sh
+npm run dev:server
+```
+
+#### database/docker
+
+```sh
+npm run dc-up
+```
 
 ## Appendix
 
@@ -34,6 +42,8 @@ https://typeorm.io/#/
 
 https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
 https://tachyons.io/
+
+[wanago](https://wanago.io/2018/12/03/typescript-express-tutorial-routing-controllers-middleware/)
 
 ### Articles that were vaguely useful but still not perfect
 
