@@ -1,3 +1,4 @@
+import * as bodyParser from 'body-parser';
 import * as express from 'express';
 import { createConnection } from 'typeorm';
 
@@ -17,6 +18,7 @@ function loggerMiddleware(
 const app = express();
 
 app.use(loggerMiddleware);
+app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(apiRouter);
 
