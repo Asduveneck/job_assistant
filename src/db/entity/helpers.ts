@@ -16,11 +16,11 @@ export abstract class TaskProgressHelper {
 
 export abstract class Details {
   @Column({ type: 'json', nullable: true })
-  details: any; // plan this out?
+  details: any; // plan this out? // {summary: string, note: string}
 }
 export abstract class DetailsContactHistory extends Details {
   @Column({ type: 'json', nullable: true })
-  contactHistory: any; // TODO: object where keys are dates and notes are values, or an array of dates and an array of notes. OR store as an array of {date: 'timestamp' note:'text'}
+  contactHistory: any; // {date: 'timestamp' note:'text'}
 }
 
 export abstract class RankHelper {

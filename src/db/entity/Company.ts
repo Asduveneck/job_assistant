@@ -33,7 +33,7 @@ class Company extends Details {
   emailPattern: string;
 
   @Column({ type: 'json', nullable: true })
-  otherUrl: any; // array of objects? []{name: url:} ?
+  otherUrl: any; // {name: url: }
 }
 
 export default Company;

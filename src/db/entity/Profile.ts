@@ -6,16 +6,10 @@ class Profile {
   profileId: number;
 
   @Column({ type: 'json' })
-  settings: any; // FINDME: plan this out?
+  personalLinks: any; // {name: string url: string}
 
   @Column({ type: 'json' })
-  personalLinks: any;
-
-  @Column({ type: 'json' })
-  jobBoardLinks: any;
-
-  @Column({ type: 'json' })
-  templates: any; // specify main categories... then arrays within...
+  jobBoardLinks: any; // {name: string url: string}
 }
 
 export default Profile;
