@@ -11,10 +11,8 @@
     "dev:server": "ts-node ./src/server/server.ts",
     "start": "node dist/server.js",
     "lint:fix": "eslint './src/**/*.{ts,tsx}'",
-    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm",
     "typeorm:cli": "ts-node ./node_modules/typeorm/cli -f ./ormconfig.ts",
-    "migration:generate": "npm run typeorm -- migration:generate --config ./ormconfig.ts --connection  --name ",
-    "migration:run": "npm run typeorm -- migration:run",
+    "migrate:generate": "ts-node ./node_modules/typeorm/cli.js migration:generate --config ./ormconfig.ts --connection  --name ",
     "migrate:create": "ts-node ./node_modules/typeorm/cli.js migration:create -n",
     "migrate:up": "ts-node ./node_modules/typeorm/cli.js migration:run",
     "migrate:down": "ts-node ./node_modules/typeorm/cli.js migration:revert"
