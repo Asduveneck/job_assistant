@@ -1,6 +1,8 @@
 import { ConnectionOptions } from 'typeorm';
 import 'dotenv/config';
 
+const isTsNode = process[Symbol.for('ts-node.register.instance')];
+
 const config: ConnectionOptions = {
   type: 'postgres',
   host: process.env.POSTGRES_HOST,
@@ -11,9 +13,13 @@ const config: ConnectionOptions = {
   synchronize: true,
   migrationsRun: true,
   logging: false,
-  entities: ['src/db/entity/**/*.js'],
-  migrations: ['src/db/migration/**/*.js'],
-  subscribers: ['src/db/subscriber/**/*.js'],
+  entities: [isTsNode ? 'src/db/entity/**/*.ts' : 'dist/db/entity/**/*.js'],
+  migrations: [
+    isTsNode ? 'src/db/migration/**/*.ts' : 'dist/db/migration/**/*.js',
+  ],
+  subscribers: [
+    isTsNode ? 'src/db/subscriber/**/*.ts' : 'dist/db/subscriber/**/*.js',
+  ],
   cli: {
     entitiesDir: 'src/db/entity',
     migrationsDir: 'src/db/migration',
