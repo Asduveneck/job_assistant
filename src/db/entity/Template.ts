@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { TemplateColumn } from '../types';
 
 @Entity()
 class Template {
@@ -6,16 +7,16 @@ class Template {
   templateId: number;
 
   @Column({ type: 'json', nullable: true })
-  coldEmail: any; // {name: string, template: string}
+  coldEmail: TemplateColumn;
 
   @Column({ type: 'json', nullable: true })
-  followUp: any; // {name: string, template: string}
+  followUp: TemplateColumn;
 
   @Column({ type: 'json', nullable: true })
-  linkedinAdd: any; // {name: string, template: string}
+  linkedinAdd: TemplateColumn;
 
   @Column({ type: 'json', nullable: true })
-  misc: any; // {name: string, template: string}
+  misc: TemplateColumn;
 }
 
 export default Template;

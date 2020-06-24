@@ -1,7 +1,14 @@
-import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  Index,
+} from 'typeorm';
 import Job from './Job';
 import Person from './Person';
 import { Details } from './helpers';
+import { UrlColumn } from '../types';
 
 @Entity()
 class Company extends Details {
@@ -20,6 +27,7 @@ class Company extends Details {
   )
   jobs: Job[];
 
+  @Index({ unique: true })
   @Column({ type: 'varchar', length: 100 })
   name: string;
 
@@ -33,7 +41,7 @@ class Company extends Details {
   emailPattern: string;
 
   @Column({ type: 'json', nullable: true })
-  otherUrl: any; // {name: url: }
+  otherUrl: UrlColumn;
 }
 
 export default Company;

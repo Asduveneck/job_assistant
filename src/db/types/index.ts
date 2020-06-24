@@ -13,6 +13,10 @@ export type ContactHistoryColumn = {
   note: string;
 };
 
+export type InterviewHistoryColumn = ContactHistoryColumn & {
+  category: string;
+};
+
 export type QuoteColumn = {
   person: string;
   quote: string;

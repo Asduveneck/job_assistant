@@ -1,6 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import Company from './Company';
 import { DetailsContactHistory } from './helpers';
+import { InterviewHistoryColumn } from '../types';
 
 @Entity()
 class Job extends DetailsContactHistory {
@@ -36,7 +37,7 @@ class Job extends DetailsContactHistory {
   dateApplied: string;
 
   @Column({ type: 'json', nullable: true })
-  interviewHistory: any; // Either {date: string, note: string}, or {date: string, category: string, note: string}
+  interviewHistory: InterviewHistoryColumn;
 }
 
 export default Job;
