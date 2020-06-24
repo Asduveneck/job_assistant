@@ -1,31 +1,39 @@
-import { PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 import { FaveAvoidCompany, FaveAvoidJob, FaveAvoidPerson } from './helpers';
 
-export class FavoriteCompany extends FaveAvoidCompany {
+@Entity({ orderBy: { rank: 'ASC' } })
+class FavoriteCompany extends FaveAvoidCompany {
   @PrimaryGeneratedColumn()
   favCompanyId: number;
 }
-export class AvoidCompany extends FaveAvoidCompany {
+
+@Entity({ orderBy: { rank: 'ASC' } })
+class AvoidCompany extends FaveAvoidCompany {
   @PrimaryGeneratedColumn()
   avoidCompanyId: number;
 }
 
-export class FavoriteJob extends FaveAvoidJob {
+@Entity({ orderBy: { rank: 'ASC' } })
+class FavoriteJob extends FaveAvoidJob {
   @PrimaryGeneratedColumn()
   favJobId: number;
 }
 
-export class InterestedJob extends FaveAvoidJob {
+@Entity({ orderBy: { rank: 'ASC' } })
+class InterestedJob extends FaveAvoidJob {
   @PrimaryGeneratedColumn()
   interestedJobId: Number;
 }
 
-export class FavoritePerson extends FaveAvoidPerson {
+@Entity({ orderBy: { rank: 'ASC' } })
+class FavoritePerson extends FaveAvoidPerson {
   @PrimaryGeneratedColumn()
   favPersonId: number;
 }
-export class AvoidPerson extends FaveAvoidPerson {
+
+@Entity({ orderBy: { rank: 'ASC' } })
+class AvoidPerson extends FaveAvoidPerson {
   @PrimaryGeneratedColumn()
   avoidPersonId: number;
 }

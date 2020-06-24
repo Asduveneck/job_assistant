@@ -1,4 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  Index,
+} from 'typeorm';
 import Job from './Job';
 import Person from './Person';
 import { Details } from './helpers';
@@ -21,6 +27,7 @@ class Company extends Details {
   )
   jobs: Job[];
 
+  @Index({ unique: true })
   @Column({ type: 'varchar', length: 100 })
   name: string;
 
