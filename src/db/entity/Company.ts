@@ -2,6 +2,7 @@ import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import Job from './Job';
 import Person from './Person';
 import { Details } from './helpers';
+import { UrlColumn } from '../types';
 
 @Entity()
 class Company extends Details {
@@ -33,7 +34,7 @@ class Company extends Details {
   emailPattern: string;
 
   @Column({ type: 'json', nullable: true })
-  otherUrl: any; // {name: url: }
+  otherUrl: UrlColumn;
 }
 
 export default Company;

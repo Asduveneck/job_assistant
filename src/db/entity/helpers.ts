@@ -2,6 +2,7 @@ import { Column, Generated, OneToOne, JoinColumn } from 'typeorm';
 import Company from './Company';
 import Job from './Job';
 import Person from './Person';
+import { ContactHistoryColumn, DetailColumn } from '../types';
 
 export abstract class TaskProgressHelper {
   @Column({ nullable: true })
@@ -16,11 +17,11 @@ export abstract class TaskProgressHelper {
 
 export abstract class Details {
   @Column({ type: 'json', nullable: true })
-  details: any; // plan this out?
+  detail: DetailColumn;
 }
 export abstract class DetailsContactHistory extends Details {
   @Column({ type: 'json', nullable: true })
-  contactHistory: any; // {date: 'timestamp' note:'text'}
+  contactHistory: ContactHistoryColumn;
 }
 
 export abstract class RankHelper {

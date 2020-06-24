@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { QuoteColumn } from '../types';
 
 export abstract class TaskProgressHelper {
   @Column({ nullable: true })
@@ -17,16 +18,16 @@ class Setting {
   settingId: number;
 
   @Column({ type: 'json', nullable: true })
-  colorPallete: any; // {name: , color_1, color_2, etc.}
+  colorPallete: any; // TODO: finalize pallete once FE going. {name: , color_1, color_2, etc.}
 
   @Column({ type: 'json', nullable: true })
-  quote: any; // {person: string, quote: string}
+  quote: QuoteColumn;
 
-  @Column({ type: 'bool', default: () => 'FALSE' })
-  showQuote: boolean; //
+  @Column({ type: 'bool', default: () => 'TRUE' })
+  showQuote: boolean;
 
-  @Column({ type: 'bool', default: () => 'FALSE' })
-  showTutorial: boolean; //
+  @Column({ type: 'bool', default: () => 'TRUE' })
+  showTutorial: boolean;
 }
 
 export default Setting;
