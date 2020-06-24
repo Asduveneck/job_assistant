@@ -16,6 +16,11 @@ export class FavoriteJob extends FaveAvoidJob {
   favJobId: number;
 }
 
+export class InterestedJob extends FaveAvoidJob {
+  @PrimaryGeneratedColumn()
+  interestedJobId: Number;
+}
+
 export class FavoritePerson extends FaveAvoidPerson {
   @PrimaryGeneratedColumn()
   favPersonId: number;

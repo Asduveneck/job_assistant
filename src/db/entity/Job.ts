@@ -36,7 +36,7 @@ class Job extends DetailsContactHistory {
   dateApplied: string;
 
   @Column({ type: 'json', nullable: true })
-  interviewHistory: any;
+  interviewHistory: any; // Either {date: string, note: string}, or {date: string, category: string, note: string}
 }
 
 export default Job;

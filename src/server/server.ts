@@ -4,7 +4,8 @@ import { createConnection } from 'typeorm';
 
 import 'dotenv/config';
 import apiRouter from './routes';
-// import config from '../../ormconfig.json'; // redo
+// import config from '../../ormconfig.ts'; // redo
+import 'reflect-metadata';
 
 function loggerMiddleware(
   request: express.Request,

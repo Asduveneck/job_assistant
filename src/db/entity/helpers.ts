@@ -16,7 +16,7 @@ export abstract class TaskProgressHelper {
 
 export abstract class Details {
   @Column({ type: 'json', nullable: true })
-  details: any; // plan this out? // {summary: string, note: string}
+  details: any; // plan this out?
 }
 export abstract class DetailsContactHistory extends Details {
   @Column({ type: 'json', nullable: true })
