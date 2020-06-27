@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { QuoteColumn } from '../types';
 
 import { QuoteColumn } from '../types';
 

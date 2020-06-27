@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { TemplateColumn } from '../types';
 
 import { TemplateColumn } from '../types';
 
