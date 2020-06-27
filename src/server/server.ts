@@ -1,11 +1,12 @@
+import 'dotenv/config';
+// import config from '../../ormconfig.ts'; // redo
+import 'reflect-metadata';
+
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
 import { createConnection } from 'typeorm';
 
-import 'dotenv/config';
 import apiRouter from './routes';
-// import config from '../../ormconfig.ts'; // redo
-import 'reflect-metadata';
 
 function loggerMiddleware(
   request: express.Request,

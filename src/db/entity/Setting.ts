@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
 import { QuoteColumn } from '../types';
 
 export abstract class TaskProgressHelper {

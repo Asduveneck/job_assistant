@@ -1,10 +1,11 @@
 import {
   Column,
   Entity,
-  PrimaryGeneratedColumn,
-  OneToOne,
   JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
+
 import Job from './Job';
 
 @Entity()

@@ -1,5 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
 import { UrlColumn } from '../types';
+
 @Entity()
 class Profile {
   @PrimaryGeneratedColumn()

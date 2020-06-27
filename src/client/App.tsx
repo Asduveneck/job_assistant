@@ -1,11 +1,12 @@
 import { StylesProvider } from '@material-ui/core';
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import Layout from './Layout';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { persistor, store } from './store/index';
 import { ThemeProvider } from 'styled-components';
+
+import Layout from './Layout';
+import { persistor, store } from './store/index';
 import theme from './theme';
 
 const App = (): JSX.Element => {

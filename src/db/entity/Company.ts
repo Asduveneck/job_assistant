@@ -1,14 +1,15 @@
 import {
   Column,
   Entity,
-  PrimaryGeneratedColumn,
-  OneToMany,
   Index,
+  OneToMany,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
+
+import { UrlColumn } from '../types';
+import { Details } from './helpers';
 import Job from './Job';
 import Person from './Person';
-import { Details } from './helpers';
-import { UrlColumn } from '../types';
 
 @Entity()
 class Company extends Details {
