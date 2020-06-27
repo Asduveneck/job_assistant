@@ -1,10 +1,9 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist/",
-    "noImplicitAny": true,
     "module": "commonjs",
     "target": "es5",
-    "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [
@@ -17,7 +16,4 @@
   "include": [
     "src/db/**/*"
   ],
-  "exclude": [
-    "node_modules"
-  ]
 }

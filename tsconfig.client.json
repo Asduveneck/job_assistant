@@ -1,16 +1,13 @@
 {
+    "extends": "./tsconfig.json",
     "compilerOptions": {
         "outDir": "./public/js/",
-        "noImplicitAny": true,
-        "noImplicitThis": true,
         "strictNullChecks": true,
         "skipLibCheck": true,
         "module": "esnext",
         "target": "es5",
         "jsx": "react",
-        "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
-        "allowJs": true,
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "lib": [
@@ -20,7 +17,4 @@
     "include": [
         "src/client/**/*"
     ],
-    "exclude": [
-        "node_modules"
-    ]
 }
