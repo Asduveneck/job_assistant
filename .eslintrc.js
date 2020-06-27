@@ -2,6 +2,7 @@ module.exports = {
   parser: '@typescript-eslint/parser', // Specifies the ESLint parser
   plugins: ['@typescript-eslint', 'eslint-comments', 'simple-import-sort'],
   extends: [
+    'plugin:jest/recommended',
     'plugin:react/recommended', // Uses the recommended rules from @eslint-plugin-react
     'airbnb-typescript',
     'airbnb/hooks',
@@ -36,16 +37,19 @@ module.exports = {
     'react/jsx-props-no-spreading': 0, // should turn on at some point
     'react/destructuring-assignment': 'off',
     'react/jsx-filename-extension': 'off',
-    'no-use-before-define': ['error', {
-      functions: false,
-      classes: true,
-      variables: true
-    }],
+    'no-use-before-define': [
+      'error',
+      {
+        functions: false,
+        classes: true,
+        variables: true,
+      },
+    ],
     '@typescript-eslint/explicit-function-return-type': [
       'error',
       {
         allowExpressions: true,
-        allowTypedFunctionExpressions: true
+        allowTypedFunctionExpressions: true,
       },
     ],
     '@typescript-eslint/no-use-before-define': [
@@ -54,7 +58,7 @@ module.exports = {
         functions: false,
         classes: true,
         variables: true,
-        typedefs: true
+        typedefs: true,
       },
     ],
     'unicorn/prevent-abbreviations': 'off',
@@ -64,7 +68,7 @@ module.exports = {
       version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
     },
   },
-  // env: {
+  // env: { // Not needed because of plugin: jest/recommended done via npm install eslint-plugin-jest@latest --save-dev
   //   'jest/globals': true,
   // },
 };

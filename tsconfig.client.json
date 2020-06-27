@@ -1,6 +1,7 @@
 {
     "extends": "./tsconfig.json",
     "compilerOptions": {
+        "noImplicitAny": true,
         "outDir": "./public/js/",
         "strictNullChecks": true,
         "skipLibCheck": true,

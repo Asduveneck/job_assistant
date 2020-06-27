@@ -1,8 +1,8 @@
-import { ConnectionOptions } from 'typeorm';
 import 'dotenv/config';
 
+import { ConnectionOptions } from 'typeorm';
+// NOTE: the tsconfig.db.json had to accept implicit any for isTsNode. Find alternative.
 const isTsNode = process[Symbol.for('ts-node.register.instance')];
-
 const config: ConnectionOptions = {
   type: 'postgres',
   host: process.env.POSTGRES_HOST,
