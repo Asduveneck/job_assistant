@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 
 import { UrlColumn } from '../types';
-import { Details } from './helpers/helpers';
+import { Details } from './helpers';
 import Job from './Job';
 import Person from './Person';
 

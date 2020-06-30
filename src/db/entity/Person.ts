@@ -1,7 +1,7 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 import Company from './Company';
-import { DetailsContactHistory } from './helpers/helpers';
+import { DetailsContactHistory } from './helpers';
 
 @Entity()
 class Person extends DetailsContactHistory {

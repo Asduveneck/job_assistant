@@ -2,7 +2,7 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 import { InterviewHistoryColumn } from '../types';
 import Company from './Company';
-import { DetailsContactHistory } from './helpers/helpers';
+import { DetailsContactHistory } from './helpers';
 
 @Entity()
 class Job extends DetailsContactHistory {
