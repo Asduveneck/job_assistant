@@ -2,17 +2,6 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 import { QuoteColumn } from '../types';
 
-export abstract class TaskProgressHelper {
-  @Column({ nullable: true })
-  description: string;
-
-  @Column('timestamp', {
-    name: 'date_created',
-    default: () => 'LOCALTIMESTAMP',
-  })
-  dateCreated: string;
-}
-
 @Entity()
 class Setting {
   @PrimaryGeneratedColumn()

@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-import { FaveAvoidCompany, FaveAvoidJob, FaveAvoidPerson } from './helpers';
+import { FaveAvoidCompany, FaveAvoidJob, FaveAvoidPerson } from '../helpers/helpers';
 
 @Entity({ orderBy: { rank: 'ASC' } })
 export class FavoriteCompany extends FaveAvoidCompany {

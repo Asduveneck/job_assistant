@@ -1,9 +1,9 @@
 import { Column, Generated, JoinColumn, OneToOne } from 'typeorm';
 
-import { ContactHistoryColumn, DetailColumn } from '../types';
-import Company from './Company';
-import Job from './Job';
-import Person from './Person';
+import { ContactHistoryColumn, DetailColumn } from '../../types';
+import Company from '../Company';
+import Job from '../Job';
+import Person from '../Person';
 
 export abstract class TaskProgressHelper {
   @Column({ nullable: true })

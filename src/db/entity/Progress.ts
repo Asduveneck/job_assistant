@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-import { TaskProgressHelper } from './helpers';
+import { TaskProgressHelper } from './helpers/helpers';
 
 @Entity()
 class Progress extends TaskProgressHelper {
