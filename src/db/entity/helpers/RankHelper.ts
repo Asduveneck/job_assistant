@@ -1,6 +1,6 @@
 import { Generated } from 'typeorm';
 
-export abstract class RankHelper {
+export default abstract class RankHelper {
   @Generated('increment')
   rank: number;
 }

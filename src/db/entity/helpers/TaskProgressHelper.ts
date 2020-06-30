@@ -1,6 +1,6 @@
-import { Column, } from 'typeorm';
+import { Column } from 'typeorm';
 
-export abstract class TaskProgressHelper {
+export default abstract class TaskProgressHelper {
   @Column({ nullable: true })
   description: string;
 
