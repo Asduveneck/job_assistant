@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# Refactor to Case
+if test "$1" = "db"
+then
+  bash s/db_helper.sh $2
+elif test "$1" = "db-init"
+then
+  bash s/db_helper.sh init-1
+  bash s/db_helper.sh init-2
+  bash s/db_helper.sh init-3
+elif test "$1" = "dc-up"
+then
+  docker-compose up
+elif test "$1" = "dc-down"
+then
+  docker-compose down
+elif test "$1" = "lint"
+then
+  npm run lint
+elif test "$1" = "lint-fix"
+then
+  npm run lint-fix
+else
+  echo "Please enter a valid option:"
+  echo "
+     option          summary                  full_path         
+    -------------------------------------------------------------             
+    db:         display db options      bash s/db_helper.sh
+    db drop:    drop all tables         bash s/db_helper.sh drop
+    db start:   connect to psql         bash s/db_helper.sh start
+    db-init:    initialize database     bash s/db_helper.sh arg a few times...
+    dc-up:      start docker            docker-compose up
+    dc-down:    remove docker volumes   docker-compose down
+    lint:       check lint errors       npm run lint
+    lint-fix:   fix soft lint errors    npm run lint-fix"
+fi
