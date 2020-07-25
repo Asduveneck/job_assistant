@@ -1,6 +1,7 @@
 import * as express from 'express';
 
 import companyRoutes from './company/companyRoutes';
+import jobRoutes from './job/jobRoutes';
 import personRoutes from './person/personRoutes';
 import apiRouter from './routes';
 
@@ -12,6 +13,7 @@ app.use(bodyParser.json());
 
 app.use('/api', apiRouter);
 app.use('/api/companies', companyRoutes);
+app.use('/api/jobs', jobRoutes);
 app.use('/api/persons', personRoutes);
 
 const port = process.env.PORT || 3000;
