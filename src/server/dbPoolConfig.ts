@@ -1,5 +1,6 @@
 import 'dotenv/config';
-import { Pool } from 'pg';
+
+import { Pool, QueryResult } from 'pg';
 
 // const isTsNode = process[Symbol.for('ts-node.register.instance')]; // implicit type any
 
@@ -14,10 +15,12 @@ const pool = new Pool({
   idleTimeoutMillis: 0,
 });
 
-export const query = (
+const query = (
   text: string,
   params: any,
-  callback: (err: Error, result: import('pg').QueryResult<any>) => void,
-) => {
+  callback: (err: Error, result: QueryResult<any>) => void,
+): void => {
   return pool.query(text, params, callback);
 };
+
+export default query;

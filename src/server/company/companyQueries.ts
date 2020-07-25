@@ -1,7 +1,8 @@
-import { query } from '../dbPoolConfig';
-import { Pool } from 'pg';
+import { Request, Response } from 'express';
 
-const createCompany = (request, response) => {
+import query from '../dbPoolConfig';
+
+export const createCompany = (request: Request, response: Response): void => {
   const {
     companyName,
     careerUrl,
@@ -17,12 +18,12 @@ const createCompany = (request, response) => {
       if (error) throw error; // TODO: status 500 , and handle error. Switch to async await possibly?
       response
         .status(201)
-        .send(`Company ${companyName} added with ID: ${result.insertId}`);
+        .send(`Company ${companyName} added with ID: ${result}`);
     },
   );
 };
 
-const getCompanies = (request, response) => {
+export const getCompanies = (_request: Request, response: Response): void => {
   query(
     'SELECT * FROM company ORDER BY company_name ASC',
     [],
@@ -33,12 +34,11 @@ const getCompanies = (request, response) => {
   );
 };
 
-const getCompanyByName = (request, response) => {
-  const { companyName } = request.body;
-
+export const getCompanyById = (request: Request, response: Response): void => {
+  const companyId = parseInt(request.params.id);
   query(
-    'SELECT * FROM company WHERE company_name = $1',
-    [companyName],
+    'SELECT * FROM company WHERE company_id = $1',
+    [companyId],
     (error, results) => {
       if (error) throw error;
       response.status(200).json(results.rows);
@@ -46,7 +46,11 @@ const getCompanyByName = (request, response) => {
   );
 };
 
-const updateCompanyById = (request, response) => {
+export const updateCompanyById = (
+  request: Request,
+  response: Response,
+): void => {
+  const companyId = parseInt(request.params.id);
   const {
     companyName,
     careerUrl,
@@ -54,7 +58,6 @@ const updateCompanyById = (request, response) => {
     emailPattern,
     details,
     otherUrls,
-    companyId,
   } = request.body;
   query(
     'UPDATE company SET company_name = $1, career_url = $2, home_url = $3, email_pattern = $4, details = $5, other_urls = $6 WHERE company_id = $7',
@@ -71,7 +74,7 @@ const updateCompanyById = (request, response) => {
       if (error) throw error; // TODO: status 500 , and handle error. Switch to async await possibly?
       response
         .status(201)
-        .send(`Company ${companyName} with ID: ${result.insertId} modified`);
+        .send(`Company ${companyName} with ID: ${result} modified`);
     },
   );
 };
