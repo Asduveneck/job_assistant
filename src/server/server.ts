@@ -11,8 +11,8 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 
 app.use('/api', apiRouter);
-app.use('/api/company', companyRoutes);
-app.use('/api/person', personRoutes);
+app.use('/api/companies', companyRoutes);
+app.use('/api/persons', personRoutes);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server listening on port: ${port}`));
