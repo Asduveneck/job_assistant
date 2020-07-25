@@ -57,7 +57,6 @@ export const updatePersonById = (
     phone,
     title,
   } = request.body;
-
   query(
     'UPDATE person SET company_id = $1, first_name = $2, last_name = $3, linkedin_url = $4, email = $5, phone = $6, title = $7 WHERE person_id = $8',
     [
@@ -70,11 +69,26 @@ export const updatePersonById = (
       title,
       personId,
     ],
-    (error, result) => {
+    (error, _result) => {
       if (error) throw error;
       response
         .status(201)
         .send(`Person: ${firstName} ${lastName} with ID: ${personId} modified`);
+    },
+  );
+};
+
+export const deletePersonById = (
+  request: Request,
+  response: Response,
+): void => {
+  const personId = parseInt(request.params.id);
+  query(
+    'DELETE FROM person WHERE person_id = $1',
+    [personId],
+    (error, _result) => {
+      if (error) throw error;
+      response.status(204).send(`Person deleted with ID: ${personId}`);
     },
   );
 };
