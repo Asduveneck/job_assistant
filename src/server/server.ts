@@ -1,12 +1,16 @@
 import * as express from 'express';
 
+import companyRoutes from './company/companyRoutes';
 import apiRouter from './routes';
-import { query } from './dbPoolConfig';
 
 const app = express();
+const bodyParser = require('body-parser');
 
 app.use(express.static('public'));
-app.use(apiRouter); // Within the router we use query and attach queries to our routes!
+app.use(bodyParser.json());
+
+app.use('/api', apiRouter);
+app.use('/api/company', companyRoutes);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server listening on port: ${port}`));
