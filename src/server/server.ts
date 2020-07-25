@@ -1,6 +1,7 @@
 import * as express from 'express';
 
 import companyRoutes from './company/companyRoutes';
+import personRoutes from './person/personRoutes';
 import apiRouter from './routes';
 
 const app = express();
@@ -11,6 +12,7 @@ app.use(bodyParser.json());
 
 app.use('/api', apiRouter);
 app.use('/api/company', companyRoutes);
+app.use('/api/person', personRoutes);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server listening on port: ${port}`));
