@@ -74,7 +74,7 @@ export const updateCompanyById = (
       if (error) throw error; // TODO: status 500 , and handle error. Switch to async await possibly?
       response
         .status(201)
-        .send(`Company ${companyName} with ID: ${result} modified`);
+        .send(`Company ${companyName} with ID: ${companyId} modified`);
     },
   );
 };
