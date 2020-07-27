@@ -9,6 +9,8 @@ then
   bash s/db_helper.sh init-1
   bash s/db_helper.sh init-2
   bash s/db_helper.sh init-3
+  bash s/db_helper.sh init-4
+  bash s/db_helper.sh init-5
 elif test "$1" = "db-seed"
 then
   echo "TIME TO SEED"

@@ -12,6 +12,12 @@ then
 elif test "$1" = "init-3"
 then
   file_path=`realpath s/db_SQL/init-03_ranks_joins.sql`
+elif test "$1" = "init-4"
+then
+  file_path=`realpath s/db_SQL/init-04_details_joins.sql`
+elif test "$1" = "init-5"
+then
+  file_path=`realpath s/db_SQL/init-05_histories_joins.sql`
 elif test "$1" = "seed"
 then
   file_path=`realpath s/db_SQL/seed-01.sql`
