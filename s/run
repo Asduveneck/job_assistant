@@ -27,6 +27,9 @@ then
 elif test "$1" = "lint-fix"
 then
   npm run lint-fix
+elif test "$1" = "server"
+then
+  npm run dev:server
 else
   echo "Please enter a valid option:"
   echo "
@@ -41,5 +44,6 @@ else
     dc-up:      start docker            docker-compose up
     dc-down:    remove docker volumes   docker-compose down
     lint:       check lint errors       npm run lint
-    lint-fix:   fix soft lint errors    npm run lint-fix"
+    lint-fix:   fix soft lint errors    npm run lint-fix
+    server:     starts dev server       npm run dev:server"
 fi
