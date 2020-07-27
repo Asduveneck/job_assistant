@@ -34,8 +34,10 @@ else
     -------------------------------------------------------------             
     db:         display db options      bash s/db_helper.sh
     db drop:    drop all tables         bash s/db_helper.sh drop
+    db empty:   empty all tables        bash s/db_helper.sh empty
+    db seed:    seed with mock data     bash s/db_helper.sh seed
     db start:   connect to psql         bash s/db_helper.sh start
-    db-init:    initialize database     bash s/db_helper.sh arg a few times...
+    db-init:    initialize database     bash s/db_helper.sh NUM a few times...
     dc-up:      start docker            docker-compose up
     dc-down:    remove docker volumes   docker-compose down
     lint:       check lint errors       npm run lint

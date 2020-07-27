@@ -1,0 +1,5 @@
+job_id,company_id,status,position,url,source,resume_used,date_applied
+1, 2,Active,Software Engineer,blaURL,LinkedIn,frontend,
+2, 2,Not a fit,Frontend Engineer,google url,Indeed,frontend,
+3, 3,Active,Fullstack Engineer,jobs.lever,Angel List,ruby,
+4, 3,No response,Leaving else blank,,,,

@@ -1,0 +1,5 @@
+person_id,company_id,first_name,last_name,linkedin_url,email,phone,title
+1,1,Alex,Duveneck,https://www.linkedin.com/in/alex-duveneck-848b118a,bla@email.com,123-123-1234,Software Engineer
+2,1,Lucas,Ashford,https://www.linkedin.com/in/URL-slug,,,
+3,2,Jim,Trot,,jim@google.com,123-123-1234,Technical recruiter
+4,3,Test,Blank-Fields,,,,

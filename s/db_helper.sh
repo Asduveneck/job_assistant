@@ -3,6 +3,9 @@
 if test "$1" = "drop"
 then
   file_path=`realpath s/db_SQL/drop_tables.sql`
+elif test "$1" = "empty"
+then
+  file_path=`realpath s/db_SQL/empty_tables.sql`
 elif test "$1" = "init-1"
 then
   file_path=`realpath s/db_SQL/init-01_main.sql`
@@ -28,14 +31,16 @@ fi
 
 if test -z ${file_path+x} 
 then
-  echo "Please enter a valid db option. Available options:
+  echo "Please enter a valid db option. Available options (after db):
 
   option        summary
 --------------------------------------------------------
+  drop:         drop all tables (delete tables)
+  empty:        empty all tables
   init-1:       create main tables if not made
   init-2:       create 1-1 relations
   init-3:       create ranks and join tables
-  drop:         drop all tables (delete tables)
+  seed:         Seed the database with mock data
   start:        connect to psql" 
 else   
   POSTGRES_USER=$(grep POSTGRES_USER .env | xargs)
