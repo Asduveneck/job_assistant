@@ -1,6 +1,9 @@
 # Bash needed for <<< #!/usr/bin/env bash 
 
-if test "$1" = "init-1"
+if test "$1" = "drop"
+then
+  file_path=`realpath s/db_SQL/drop_tables.sql`
+elif test "$1" = "init-1"
 then
   file_path=`realpath s/db_SQL/init-01_main.sql`
 elif test "$1" = "init-2"
@@ -9,9 +12,9 @@ then
 elif test "$1" = "init-3"
 then
   file_path=`realpath s/db_SQL/init-03_ranks_joins.sql`
-elif test "$1" = "drop"
+elif test "$1" = "seed"
 then
-  file_path=`realpath s/db_SQL/drop_tables.sql`
+  file_path=`realpath s/db_SQL/seed-01.sql`
 elif test "$1" = "start"
 then
   file_path="NA"

@@ -1,0 +1,4 @@
+company_id,company_name,career_url,home_url,email_pattern,details,other_urls
+1,Google,https://careers.google.com/,https://www.google.com/,first.last@google.com,"{}","{""name"":""interviewing"", ""url"":""https://careers.google.com/how-we-hire/interview/""}"
+2,Apple,,,,"{""summary"": ""Mission Statement"", ""details"": ""Put a dent in the world. Focus on bringing change.""}","{}"
+3,Testing Company Name URL,Career Url Ex,Home url ex,email_pattern_ex, "{}","{}"

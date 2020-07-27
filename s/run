@@ -9,6 +9,10 @@ then
   bash s/db_helper.sh init-1
   bash s/db_helper.sh init-2
   bash s/db_helper.sh init-3
+elif test "$1" = "db-seed"
+then
+  echo "TIME TO SEED"
+  bash s/db_helper.sh seed
 elif test "$1" = "dc-up"
 then
   docker-compose up
