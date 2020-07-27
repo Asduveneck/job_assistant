@@ -5,7 +5,6 @@ CREATE TABLE IF NOT EXISTS company (
     career_url varchar(75),
     home_url varchar(75),
     email_pattern varchar(50),
-    details json,
     other_urls json
 );
 
@@ -28,10 +27,7 @@ CREATE TABLE IF NOT EXISTS job (
     url varchar(100),
     source varchar(30),
     resume_used varchar(30),
-    date_applied timestamp WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    details json,
-    contact_history json,
-    interview_history json
+    date_applied timestamp WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS profile (
@@ -70,7 +66,6 @@ CREATE TABLE IF NOT EXISTS task (
     task_id integer PRIMARY KEY,
     date_created date DEFAULT CURRENT_DATE,
     date_todo date,
-    name varchar(100),
     status varchar(15)
 );
 
@@ -78,14 +73,23 @@ CREATE TABLE IF NOT EXISTS progress (
     progress_id integer PRIMARY KEY,
     date_created date DEFAULT CURRENT_DATE,
     time_spent integer,
-    category varchar(25) NOT NULL,
-    description text
+    category varchar(25) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS first_interview (
-    interview_id integer PRIMARY KEY,
-    job_id integer REFERENCES job (job_id),
-    date_created date DEFAULT CURRENT_DATE,
-    date_scheduled timestamp WITH TIME ZONE,
-    note text
+CREATE TABLE IF NOT EXISTS detail (
+    detail_id integer PRIMARY KEY,
+    summary varchar(100),
+    details text
+);
+
+CREATE TABLE IF NOT EXISTS contact_history (
+    contact_history_id integer PRIMARY KEY,
+    date_contacted timestamp WITH TIME ZONE,
+    category varchar(10)
+);
+
+CREATE TABLE IF NOT EXISTS interview_history (
+    interview_history_id integer PRIMARY KEY,
+    date_interviewed timestamp WITH TIME ZONE,
+    category varchar(10)
 );
