@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 
 import query from '../dbPoolConfig';
+import { deleteById, getById } from '../helpers/queries';
 
 export const createPerson = (request: Request, response: Response): void => {
   const {
@@ -31,23 +32,13 @@ export const getPersons = (_request: Request, response: Response): void => {
   });
 };
 
-export const getPersonById = (request: Request, response: Response): void => {
-  const personId = parseInt(request.params.id);
-  query(
-    'SELECT * from person WHERE person_id = $1',
-    [personId],
-    (error, results) => {
-      if (error) throw error;
-      response.status(200).json(results.rows);
-    },
-  );
-};
+export const getPersonById = getById('person');
 
 export const updatePersonById = (
   request: Request,
   response: Response,
 ): void => {
-  const personId = parseInt(request.params.id);
+  const personId = parseInt(request.params.id, 10);
   const {
     companyId,
     firstName,
@@ -69,7 +60,7 @@ export const updatePersonById = (
       title,
       personId,
     ],
-    (error, _result) => {
+    error => {
       if (error) throw error;
       response
         .status(201)
@@ -78,17 +69,4 @@ export const updatePersonById = (
   );
 };
 
-export const deletePersonById = (
-  request: Request,
-  response: Response,
-): void => {
-  const personId = parseInt(request.params.id);
-  query(
-    'DELETE FROM person WHERE person_id = $1',
-    [personId],
-    (error, _result) => {
-      if (error) throw error;
-      response.status(204).send(`Person deleted with ID: ${personId}`);
-    },
-  );
-};
+export const deletePersonById = deleteById('person');

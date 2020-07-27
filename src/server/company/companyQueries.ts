@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 
 import query from '../dbPoolConfig';
+import { getById } from '../helpers/queries';
 
 export const createCompany = (request: Request, response: Response): void => {
   const {
@@ -34,23 +35,13 @@ export const getCompanies = (_request: Request, response: Response): void => {
   );
 };
 
-export const getCompanyById = (request: Request, response: Response): void => {
-  const companyId = parseInt(request.params.id);
-  query(
-    'SELECT * FROM company WHERE company_id = $1',
-    [companyId],
-    (error, results) => {
-      if (error) throw error;
-      response.status(200).json(results.rows);
-    },
-  );
-};
+export const getCompanyById = getById('company');
 
 export const updateCompanyById = (
   request: Request,
   response: Response,
 ): void => {
-  const companyId = parseInt(request.params.id);
+  const companyId = parseInt(request.params.id, 10);
   const {
     companyName,
     careerUrl,
@@ -70,7 +61,7 @@ export const updateCompanyById = (
       otherUrls,
       companyId,
     ],
-    (error, result) => {
+    error => {
       if (error) throw error; // TODO: status 500 , and handle error. Switch to async await possibly?
       response
         .status(201)

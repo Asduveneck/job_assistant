@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 
 import query from '../dbPoolConfig';
+import { deleteById, getById } from '../helpers/queries';
 
 export const createJob = (request: Request, response: Response): void => {
   const {
@@ -43,16 +44,10 @@ export const getJobs = (_request: Request, response: Response): void => {
   });
 };
 
-export const getJobById = (request: Request, response: Response): void => {
-  const jobId = parseInt(request.params.id);
-  query('SELECT * from job WHERE job_id = $1', [jobId], (error, results) => {
-    if (error) throw error;
-    response.status(200).json(results.rows);
-  });
-};
+export const getJobById = getById('job');
 
 export const updateJobById = (request: Request, response: Response): void => {
-  const jobId = parseInt(request.params.id);
+  const jobId = parseInt(request.params.id, 10);
   const {
     companyId,
     position,
@@ -76,7 +71,7 @@ export const updateJobById = (request: Request, response: Response): void => {
       interviewHistory,
       jobId,
     ],
-    (error, _result) => {
+    error => {
       if (error) throw error;
       response
         .status(201)
@@ -87,10 +82,4 @@ export const updateJobById = (request: Request, response: Response): void => {
   );
 };
 
-export const deleteJobById = (request: Request, response: Response): void => {
-  const jobId = parseInt(request.params.id);
-  query('DELETE FROM job WHERE job_id = $1', [jobId], (error, _result) => {
-    if (error) throw error;
-    response.status(204).send(`Job deleted with ID: ${jobId}`);
-  });
-};
+export const deleteJobById = deleteById('job');
