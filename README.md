@@ -1,52 +1,77 @@
 # job_assistant
 
-## Technical details
+## About
 
-There are 2 different Webpack configurations. One for the server and one for the client.
+Job Assistant is designed to record your job applications, and assist you with the job hunt! Many features are currently being developed. While there is technically a Front-End, it has NOT been developed yet, and web-pack needs to be heavily configured (for live re-load and potentially removing SASS/SCSS compilation).
 
-### Server
+## Set up
 
-The server build process compiles the TypeScript files found in `/src/server` into a single bundled JavaScript file located in the `/dist` directory.
+These set up steps will probably be updated as additional features are built (and additional configurations are set).
 
-### Client
+### 0: Install necessary dependencies
 
-The client build process compiles the React app located in `/src/client` into a bundled located at `/public/js/app.js`.
+Make sure you have the following installed:
 
-The client configuration will also build the Sass files found at `/src/client/scss`. The App component imports the `app.scss` file which already includes an import for Bootstrap.
+- Docker-Compose
+- psql
+- node
+- bash
 
-### Running the project
+### 1: Set up hidden configs/credentials
 
-In order to run the server, use `npm run dev`, and the server will start on [port 3000](http://localhost:3000).
+Make sure you have a `.env` and `docker.env` files in the project root (see sample_configs). After making `.env`, copy and paste the `user`, `password`, and `db`.
 
-Webpack will watch the files. Once you save a file, you can refresh your browser to ensure you got the updated client files. If you only change server files, you _shouldn't_ need to refresh.
+### 2: Set up Docker
 
-## Appendix
+In one terminal, once you're at the root directory, start docker by running:
 
-### Articles I'm about to read
+```sh
+s/run dc-up
+```
 
-Postgres Express Node Setup:
-https://www.taniarascia.com/node-express-postgresql-heroku/
-https://kb.objectrocket.com/postgresql/how-to-create-a-postgres-database-with-nodejs-844
-https://www.freecodecamp.org/news/fullstack-react-blog-app-with-express-and-psql/
+You'll want docker running for the rest of the set up.
 
-ORMs:
-https://typeorm.io/#/
+### 3: Initialize the database
 
-https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
-https://tachyons.io/
+In another terminal (at the root repo), you can initialize all of the database tables via:
 
-### Articles that were vaguely useful but still not perfect
+```sh
+s/run db-init
+```
 
-[Anwesha: Strongly-typed create-react-app](https://medium.com/@anwesha_das/a-strongly-typed-create-react-app-with-an-express-api-server-44e2334ccc71)
+`db-init` triggers a series of SQL scripts to run in sequential order, enabling you to create the tables in order. At this point, you can optionally seed the database via:
 
-- Skipped out on some steps, like the packages she installed.
-- Took me a while to figure out, and I now realize ts-node is problematic.
+```sh
+s/run db seed
+```
 
-[Dirk's how I structure...](https://dev.to/dirk94/how-i-structure-my-express-typescript-react-applications-g3e)
+### 4: Start the server
 
-- ts-node has a bug with imports still. Can't start server as a result.
-- I now realize I do NOT like his structure.
+The server is currently written in TypeScript, so I recommend running the dev server. Either of the following commands work will start the server
 
-[Alex's Production ready](https://itnext.io/production-ready-node-js-rest-apis-setup-using-typescript-postgresql-and-redis-a9525871407)
+```sh
+s/run server
+npm run dev:server
+```
 
-- Really clear, readable. Incomplete and missing part two...
+The server runs on `localhost:5000`, and all of the current api endpoints can be accessed via `localhost:5000/api/RESOURCES`.
+
+### Optional
+
+Within the Docker, we have pgadmin, which provides a UI for interacting with the database. To set it up, once docker is running, go to [localhost:8080](localhost:8000), and log in using the credentials `PGADMMIN_DEFAULT_EMAIL` and `PGADMIN_DEFAULT_PASSWORD` defined within `docker.env`.
+
+Click on `Create Server`, and for the `Host name/address`, select `postgres`. The Username and Password are based upon your `.env` files.
+
+## Technologies Used
+
+- Development Tools: Docker, TypeScript, eslint, prettier, webpack
+- Frontend: React, MaterialUI
+- Backend: PostgreSQL Express, Node
+
+## Resources Consulted
+
+I learned a lot from the people who taught me, and many parts of this project I had to look up.
+
+- The initial `webpack` setup was taken from [covalence](https://github.com/covalence-io/barebones-react-typescript-express), but this may be scrapped in the near future as I heavily modify webpack.
+- Docker setup was taken from [Wanago's series](https://wanago.io/2018/12/03/typescript-express-tutorial-routing-controllers-middleware/)
+- Eslint setup was mostly taken from [Robert Cooper](https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project)

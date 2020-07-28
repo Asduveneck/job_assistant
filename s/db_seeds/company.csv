@@ -1,0 +1,5 @@
+company_id,company_name,career_url,home_url,email_pattern,other_urls
+1,NA,,,,
+2,Google,https://careers.google.com/,https://www.google.com/,first.last@google.com,"{""url1"":""url1"", ""url2"":""https://careers.google.com/how-we-hire/interview/""}"
+3,Apple,,,,"{""key"":""BROKEN FOR NOW. CLEAR UP NEXT PR""}"
+4,Testing Company Name URL,Career Url Ex,Home url ex,email_pattern_ex,{}

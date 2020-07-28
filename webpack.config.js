@@ -1,6 +1,5 @@
 const path = require('path');
 var nodeExternals = require('webpack-node-externals');
-// Now that prettier and eslint is set up, this webpack isn't being compiled properly?!? 
 const serverConfig = {
     mode: process.env.NODE_ENV || 'development',
     entry: './src/server/server.ts',
