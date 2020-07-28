@@ -13,12 +13,8 @@ const pool = new Pool({
   idleTimeoutMillis: 0,
 });
 
-const query = (
-  text: string,
-  params: any,
-  callback: (err: Error, result: QueryResult<any>) => void,
-): void => {
-  return pool.query(text, params, callback);
+const query = (text: string, params: any): Promise<QueryResult<any>> => {
+  return pool.query(text, params);
 };
 
 export default query;
