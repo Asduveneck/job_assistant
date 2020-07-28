@@ -3,7 +3,6 @@ import * as express from 'express';
 import companyRoutes from './company/companyRoutes';
 import jobRoutes from './job/jobRoutes';
 import personRoutes from './person/personRoutes';
-import apiRouter from './routes';
 
 const app = express();
 const bodyParser = require('body-parser');
@@ -11,7 +10,6 @@ const bodyParser = require('body-parser');
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-app.use('/api', apiRouter);
 app.use('/api/companies', companyRoutes);
 app.use('/api/jobs', jobRoutes);
 app.use('/api/persons', personRoutes);
