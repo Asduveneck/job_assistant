@@ -1,11 +1,12 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 
 import query from '../dbPoolConfig';
-import { deleteById, getById } from '../helpers/queries';
+import { deleteById, getById } from '../utils';
 
 export const createPerson = async (
   request: Request,
   response: Response,
+  next: NextFunction,
 ): Promise<void> => {
   try {
     const {
@@ -26,14 +27,14 @@ export const createPerson = async (
       .status(201)
       .send(`Person ${firstName} ${lastName} added with ID: ${result}`);
   } catch (error) {
-    console.log(error);
-    throw error;
+    next(error);
   }
 };
 
 export const getPersons = async (
   request: Request,
   response: Response,
+  next: NextFunction,
 ): Promise<void> => {
   try {
     const result = await query(
@@ -42,8 +43,7 @@ export const getPersons = async (
     );
     response.status(200).json(result.rows);
   } catch (error) {
-    console.log(error);
-    throw error;
+    next(error);
   }
 };
 
@@ -52,6 +52,7 @@ export const getPersonById = getById('person');
 export const updatePersonById = async (
   request: Request,
   response: Response,
+  next: NextFunction,
 ): Promise<void> => {
   try {
     const personId = parseInt(request.params.id, 10);
@@ -81,8 +82,7 @@ export const updatePersonById = async (
       .status(201)
       .send(`Person: ${firstName} ${lastName} with ID: ${personId} modified`);
   } catch (error) {
-    console.log(error);
-    throw error;
+    next(error);
   }
 };
 
