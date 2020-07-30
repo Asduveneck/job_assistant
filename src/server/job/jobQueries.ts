@@ -1,11 +1,12 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 
 import query from '../dbPoolConfig';
-import { deleteById, getById } from '../helpers/queries';
+import { deleteById, getById } from '../utils';
 
 export const createJob = async (
   request: Request,
   response: Response,
+  next: NextFunction,
 ): Promise<void> => {
   try {
     const {
@@ -32,28 +33,25 @@ export const createJob = async (
       ],
     );
     response
-      .status(201) // UPDATE BELOW"
+      .status(201) // UPDATE BELOW
       .send(
-        `Job ${position} at company with ID ${companyId} added with ID: ${results}`,
-      ); // TODO: get ID. insertId does not exist on type result...?
+        `Job ${position} at company with ID ${companyId} added with ID: ${results.oid}`,
+      );
   } catch (error) {
-    // TODO: Status 500. Handle errors
-    console.log(error);
-    throw error;
+    next(error);
   }
 };
 
 export const getJobs = async (
-  // WORKS. TODO: find all the Async (capitalized) and remove them.
   _request: Request,
   response: Response,
+  next: NextFunction,
 ): Promise<void> => {
   try {
     const results = await query('SELECT * FROM job ORDER BY job_id ASC', []);
     response.status(200).json(results.rows);
   } catch (error) {
-    console.log(error);
-    throw error;
+    next(error);
   }
 };
 
@@ -62,6 +60,7 @@ export const getJobById = getById('job');
 export const updateJobById = async (
   request: Request,
   response: Response,
+  next: NextFunction,
 ): Promise<void> => {
   try {
     const jobId = parseInt(request.params.id, 10);
@@ -95,8 +94,7 @@ export const updateJobById = async (
         `Job: ${position} at companyID ${companyId} with ID ${jobId} modified`,
       );
   } catch (error) {
-    console.log(error);
-    throw error;
+    next(error);
   }
 };
 

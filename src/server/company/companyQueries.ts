@@ -1,11 +1,12 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 
 import query from '../dbPoolConfig';
-import { getById } from '../helpers/queries';
+import { getById } from '../utils';
 
 export const createCompany = async (
   request: Request,
   response: Response,
+  next: NextFunction,
 ): Promise<void> => {
   try {
     const {
@@ -24,14 +25,14 @@ export const createCompany = async (
       .status(201)
       .send(`Company ${companyName} added with ID: ${result}`);
   } catch (error) {
-    console.log(error);
-    throw error;
+    next(error);
   }
 };
 
 export const getCompanies = async (
   request: Request,
   response: Response,
+  next: NextFunction,
 ): Promise<void> => {
   try {
     const result = await query(
@@ -40,8 +41,7 @@ export const getCompanies = async (
     );
     response.status(200).json(result.rows);
   } catch (error) {
-    console.log(error);
-    throw error;
+    next(error);
   }
 };
 
@@ -50,6 +50,7 @@ export const getCompanyById = getById('company');
 export const updateCompanyById = async (
   request: Request,
   response: Response,
+  next: NextFunction,
 ): Promise<void> => {
   try {
     const companyId = parseInt(request.params.id, 10);
@@ -77,7 +78,6 @@ export const updateCompanyById = async (
       .status(201)
       .send(`Company ${companyName} with ID: ${companyId} modified`);
   } catch (error) {
-    console.log(error);
-    throw error;
+    next(error);
   }
 };
