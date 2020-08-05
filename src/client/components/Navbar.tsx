@@ -1,9 +1,9 @@
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import AddIcon from '@material-ui/icons/Add';
-import MenuIcon from '@material-ui/icons/Menu';
+import { AccountCircle, Add, Menu } from '@material-ui/icons';
 import React from 'react';
+
+import NavMenu from './NavbarMenu';
 
 const TopNavbar: React.SFC = () => {
   return (
@@ -11,7 +11,7 @@ const TopNavbar: React.SFC = () => {
       <Toolbar className='flex justify-between'>
         <div className='flex justify-around items-center-ns mh2'>
           <IconButton edge='start' color='inherit' aria-label='open drawer'>
-            <MenuIcon />
+            <Menu />
           </IconButton>
           <Typography variant='h6' color='primary'>
             Job Tracker
@@ -19,11 +19,12 @@ const TopNavbar: React.SFC = () => {
         </div>
         <div className='flex justify-around items-center-ns mh2'>
           <IconButton edge='start' color='inherit' aria-label='open drawer'>
-            <AddIcon />
+            <Add />
           </IconButton>
           <IconButton edge='start' color='inherit' aria-label='open drawer'>
-            <AccountCircleIcon />
+            <AccountCircle />
           </IconButton>
+          <NavMenu add icon={<Add />} />
         </div>
       </Toolbar>
     </AppBar>
