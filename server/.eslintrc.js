@@ -63,7 +63,7 @@ module.exports = {
   },
   settings: {
     react: {
-      version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
+      version: 'detect', // TODO: Update this ESLint for security linters AND remove the React only stuff.
     },
   },
   // env: { // Not needed because of plugin: jest/recommended done via npm install eslint-plugin-jest@latest --save-dev
