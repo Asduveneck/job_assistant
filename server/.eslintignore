@@ -1,0 +1,5 @@
+./webpack.config.js
+./conf
+prettier.config.js
+build.js
+*.json

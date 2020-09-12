@@ -3,15 +3,13 @@ module.exports = {
   plugins: ['@typescript-eslint', 'eslint-comments', 'simple-import-sort'],
   extends: [
     'plugin:jest/recommended',
-    'plugin:react/recommended', // Uses the recommended rules from @eslint-plugin-react
     'airbnb-typescript',
-    'airbnb/hooks',
     'plugin:eslint-comments/recommended',
     'prettier/@typescript-eslint', // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
     'plugin:prettier/recommended', // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
   ],
   parserOptions: {
-    project: ['./tsconfig.client.json', './tsconfig.db.json', './tsconfig.server.json'], // bug? https://stackoverflow.com/questions/37579969/how-to-use-multiple-tsconfig-files-in-vs-code
+    project: ['./tsconfig.json'],
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports
     ecmaFeatures: {
