@@ -1,0 +1,5 @@
+./conf
+prettier.config.js
+react-app-env.d.ts
+serviceWorker.ts
+setupTests.ts

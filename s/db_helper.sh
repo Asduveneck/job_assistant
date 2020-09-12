@@ -31,7 +31,7 @@ fi
 
 if test -z ${file_path+x} 
 then
-  echo "Please enter a valid db option. Available options (after db):
+  echo 'Please enter a valid db option. Available options (after `s/run db`):
 
   option        summary
 --------------------------------------------------------
@@ -41,7 +41,7 @@ then
   init-2:       create 1-1 relations
   init-3:       create ranks and join tables
   seed:         Seed the database with mock data
-  start:        connect to psql" 
+  start:        connect to psql' 
 else   
   POSTGRES_USER=$(grep POSTGRES_USER .env | xargs)
   IFS='=' read -ra POSTGRES_USER <<< "$POSTGRES_USER"
